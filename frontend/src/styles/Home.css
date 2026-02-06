@@ -1,0 +1,153 @@
+.home-page {
+  overflow: hidden;
+}
+
+.hero-section {
+  position: relative;
+  padding: 100px 0;
+  background: #f8f9fa; /* Solid color fallback */
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/pattern.jpg') repeat;
+  opacity: 0.2; /* Increased opacity for better visibility */
+  z-index: 0;
+  mix-blend-mode: multiply; /* Helps blend the pattern with the background */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #3498db;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  animation: fadeInUp 1s ease 0.2s;
+  animation-fill-mode: both;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #5d6d7e;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  animation: fadeInUp 1s ease 0.4s;
+  animation-fill-mode: both;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  animation: fadeInUp 1s ease 0.6s;
+  animation-fill-mode: both;
+}
+
+.hero-image {
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .hero-section {
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .hero-content {
+    margin-bottom: 50px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,182 @@
+.how-it-works-page {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 80px);
+  padding: 60px 0;
+}
+
+.process-card, .model-info-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.process-card:hover, .model-info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.process-card .card-body, .model-info-card .card-body {
+  padding: 2.5rem;
+}
+
+.process-card h2, .model-info-card h3 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.process-card h2:after, .model-info-card h3:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #5dade2);
+  border-radius: 2px;
+}
+
+.process-card p, .model-info-card p {
+  color: #5d6d7e;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Process steps */
+.process-steps {
+  position: relative;
+  padding-left: 30px;
+}
+
+.process-steps:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #e1e8ed;
+}
+
+.process-step {
+  position: relative;
+  padding: 0 0 30px 40px;
+}
+
+.process-step:last-child {
+  padding-bottom: 0;
+}
+
+.step-number {
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #3498db;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.step-content h4 {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  margin-bottom: 0;
+  color: #7f8c8d;
+}
+
+/* Model info card */
+.model-info-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.model-info-card .list-group-item {
+  background: transparent;
+  border: none;
+  padding: 8px 0;
+  color: #5d6d7e;
+  font-size: 0.95rem;
+}
+
+.model-info-card .list-group-item:before {
+  content: '•';
+  color: #3498db;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .how-it-works-page {
+    padding: 40px 0;
+  }
+  
+  .process-card .card-body, 
+  .model-info-card .card-body {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .process-card h2, 
+  .model-info-card h3 {
+    font-size: 1.75rem;
+  }
+  
+  .process-steps {
+    padding-left: 20px;
+  }
+  
+  .process-step {
+    padding-left: 35px;
+  }
+  
+  .step-number {
+    width: 28px;
+    height: 28px;
+    left: -25px;
+    font-size: 13px;
+  }
+}
+
+/* Animation for steps */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.process-step {
+  animation: slideInRight 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.3s; }
+.process-step:nth-child(3) { animation-delay: 0.5s; }
+.process-step:nth-child(4) { animation-delay: 0.7s; }
+.process-step:nth-child(5) { animation-delay: 0.9s; }

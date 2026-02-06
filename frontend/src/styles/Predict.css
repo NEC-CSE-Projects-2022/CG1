@@ -1,0 +1,328 @@
+/* Main Container */
+.predict-page {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 80px);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.predict-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/pattern.jpg');
+  opacity: 0.03;
+  z-index: 0;
+}
+
+/* Prediction Card */
+.prediction-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.prediction-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.15);
+}
+
+.prediction-card .card-body {
+  padding: 3rem;
+}
+
+/* Form Header */
+.prediction-card h2 {
+  color: #2c3e50;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.prediction-card h2:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #5dade2);
+  border-radius: 4px;
+}
+
+.prediction-card .text-muted {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+  color: #6c757d !important;
+}
+
+/* Form Elements */
+.prediction-card .form-label {
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.prediction-card .form-label .info-icon {
+  margin-left: 8px;
+  color: #7f8c8d;
+  cursor: help;
+  font-size: 0.9em;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.prediction-card .form-label .info-icon:hover {
+  color: #3498db;
+  opacity: 1;
+}
+
+.prediction-card .form-control,
+.prediction-card .form-select {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #f8f9fa;
+  height: calc(2.8em + 0.75rem + 2px);
+}
+
+.prediction-card .form-control:focus,
+.prediction-card .form-select:focus {
+  border-color: #3498db;
+  background-color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15);
+  transform: translateY(-1px);
+}
+
+.prediction-card .form-control:not(:placeholder-shown),
+.prediction-card .form-select:not(:placeholder-shown) {
+  background-color: #fff;
+}
+
+/* Input Group Addon */
+.prediction-card .input-group-text {
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-right: none;
+  border-radius: 10px 0 0 10px !important;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-predict {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+}
+
+.btn-predict:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.btn-predict:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-reset {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  color: #6c757d;
+}
+
+.btn-reset:hover {
+  background-color: #f1f3f5;
+  border-color: #dee2e6;
+  color: #495057;
+}
+
+/* Form Group Animation */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.form-group:focus-within {
+  transform: translateY(-2px);
+}
+
+/* Form Validation */
+.is-invalid {
+  border-color: #e74c3c !important;
+  background-image: none;
+  padding-right: 15px;
+}
+
+.invalid-feedback {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+/* Loading State */
+.loading-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Result Card */
+.result-card {
+  margin-top: 2.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border-left: 5px solid #3498db;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.result-card.border-success {
+  border-left-color: #2ecc71;
+  background: linear-gradient(to right, #f8f9fa 0%, #f8f9fa 98%, #2ecc71 98%, #2ecc71 100%);
+}
+
+.result-card.border-danger {
+  border-left-color: #e74c3c;
+  background: linear-gradient(to right, #f8f9fa 0%, #f8f9fa 98%, #e74c3c 98%, #e74c3c 100%);
+}
+
+.result-card .card-body {
+  padding: 2rem;
+}
+
+.result-card h4 {
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+}
+
+.result-card h4 .result-icon {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.result-card p {
+  margin-bottom: 1rem;
+  color: #495057;
+  line-height: 1.7;
+}
+
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e8f4fc;
+  color: #2980b9;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.2rem solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .prediction-card .card-body {
+    padding: 1.5rem;
+  }
+  
+  .prediction-card h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .predict-page {
+    padding: 20px 0;
+  }
+  
+  .prediction-card .card-body {
+    padding: 1.25rem;
+  }
+  
+  .prediction-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

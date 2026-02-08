@@ -8,3 +8,4 @@ matplotlib
 seaborn
 flask==2.2.5
 flask-cors==3.0.10
+gunicorn==21.2.0

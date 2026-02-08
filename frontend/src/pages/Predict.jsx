@@ -14,6 +14,8 @@ import {
   faArrowCircleRight
 } from '@fortawesome/free-solid-svg-icons';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+
 const Predict = () => {
   const [formData, setFormData] = useState({
     Age: '',
@@ -60,7 +62,7 @@ const Predict = () => {
         'A/G Ratio': Number(formData['A/G Ratio'])
       };
 
-      const response = await axios.post('http://localhost:5000/predict', requestData);
+      const response = await axios.post(`${API_BASE_URL}/predict`, requestData);
       
       // Add analysis based on the input values
       const analysis = [];

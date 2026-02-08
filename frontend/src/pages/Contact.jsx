@@ -48,7 +48,7 @@ const Contact = () => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
+  const [error] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;

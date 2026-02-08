@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Alert } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const ResultCard = ({ result }) => {
   if (!result) return null;

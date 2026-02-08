@@ -4,15 +4,6 @@ import axios from 'axios';
 import ResultCard from '../components/ResultCard';
 import LiverHealthInfo from './LiverHealthInfo';
 import '../styles/Predict.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faHeartbeat, 
-  faUtensils, 
-  faBan, 
-  faStethoscope, 
-  faInfoCircle,
-  faArrowCircleRight
-} from '@fortawesome/free-solid-svg-icons';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 

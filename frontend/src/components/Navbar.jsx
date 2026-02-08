@@ -37,6 +37,9 @@ const Navbar = () => {
             <Nav.Link as={Link} to="/predict" className={location.pathname === '/predict' ? 'active' : ''}>
               Predict
             </Nav.Link>
+            <Nav.Link as={Link} to="/dataset" className={location.pathname === '/dataset' ? 'active' : ''}>
+              Dataset
+            </Nav.Link>
             <Nav.Link as={Link} to="/about" className={location.pathname === '/about' ? 'active' : ''}>
               About
             </Nav.Link>

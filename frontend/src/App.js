@@ -10,6 +10,7 @@ import Predict from './pages/Predict';
 import About from './pages/About';
 import HowItWorks from './pages/HowItWorks';
 import Contact from './pages/Contact';
+import Dataset from './pages/Dataset';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/predict" element={<Predict />} />
+              <Route path="/dataset" element={<Dataset />} />
               <Route path="/about" element={<About />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/contact" element={<Contact />} />

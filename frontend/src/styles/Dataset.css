@@ -1,0 +1,78 @@
+.dataset-page {
+  padding: 110px 0 40px;
+}
+
+.dataset-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dataset-header {
+  margin-bottom: 18px;
+}
+
+.dataset-title {
+  font-weight: 700;
+  color: #0b2b45;
+  margin-bottom: 6px;
+}
+
+.dataset-subtitle {
+  color: #5a6b7a;
+  margin-bottom: 0;
+}
+
+.dataset-label {
+  font-weight: 600;
+  color: #0b2b45;
+}
+
+.dataset-legend {
+  margin: 12px 0 0;
+  border-radius: 12px;
+}
+
+.dataset-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #415466;
+  padding-top: 6px;
+}
+
+.dataset-table-wrap {
+  margin-top: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-height: 560px;
+  overflow-y: auto;
+}
+
+.dataset-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  color: #415466;
+}
+
+.dataset-table {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.dataset-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f3f7fb;
+  color: #0b2b45;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dataset-table td {
+  white-space: nowrap;
+}

@@ -186,6 +186,7 @@ Set this in Vercel → Project Settings → Environment Variables:
 Key: REACT_APP_API_BASE_URL
 Value: https://liver1.onrender.com
 After changing env vars, redeploy on Vercel (CRA reads env vars at build time).
+url: https://liver1-aaon.vercel.app/
 
 Connection Summary
 -----------------

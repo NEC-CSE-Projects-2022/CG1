@@ -1,17 +1,15 @@
-<img width="2256" height="326" alt="image" src="https://github.com/user-attachments/assets/6524082a-0054-46b5-a60d-7b9d50c4bbeb" />
+
 # Team Number CG1– Project Title(ExplaiLiver+: A Multi-Stage Stacking Framework with SHAP-Based Interpretability for Clinical Liver Disease Prediction)
 
 ## Team Info
 - 22471A05H5 — **Pulagorla Mounica** ( www.linkedin.com/in/mounica-pulagorla )
-_Work Done: Paper title finalization, Coordinated overall project execution,Model implementation and code execution (Machine Learning algorithms), Training, testing, and performance evaluation,Paper documentation, formatting, and final paper preparation,paper presentation design,Frontend integration and deployment support
+Work Done: Project coordination, paper title finalization, ML model implementation, training/testing, performance evaluation, documentation, paper formatting, presentation design, frontend integration & deployment support.
 
 - 22471A05G9 — **Mahamkali Ramadevi** ( https://www.linkedin.com/in/ramadevi-mahamkali-625801277 )
-_Work Done: Model implementation and code execution (Machine Learning algorithms),Result analysis and generating graphs/tables for the paper,Assisted in conference submission preparation,paper presentation design,Backend code implementation
+Work Done: ML implementation, result analysis, graph/table generation, backend implementation, conference submission support, presentation design
 
 - 22471A05K4 — **Valivarthi Abhinayasri** ( https://www.linkedin.com/in/abhinayasri-valivarthi-b585b1282 )
-_Work Done: Base paper research and literature survey, Dataset identification and preprocessing support,Dataset collection and feature understanding,PPT creation and paper presentation design, Frontend design
-
-
+Work Done: Literature survey, base paper research, dataset study, preprocessing support, feature understanding, PPT design, frontend design.
 
 ## Abstract
 —Improving patient outcomes and facilitating early
@@ -42,15 +40,22 @@ clinical decision support system, XGBoost, CatBoost, LightGBM
 ---
 
 ## Paper Reference (Inspiration)
-👉 **[Paper Title Toward an Accurate Liver Disease Prediction Based on Two-Level Ensemble Stacking Mode
-  – Author Names Nora Mahmoud El-Rashidy 
- ](https://ieeexplore.ieee.org/document/10680897)**
+El-Rashidy et al. — Toward an Accurate Liver Disease Prediction Based on Two-Level Ensemble Stacking Model (IEEE).
+(https://ieeexplore.ieee.org/document/10680897)**
 Original conference/IEEE paper used as inspiration for the model.
 
 ---
 
 ## Our Improvement Over Existing Paper
 The proposed ExplaiLiver+ framework significantly improves over existing liver disease prediction studies in several aspects. Unlike earlier works that relied on single models or simple ensembles, our system introduces a two-level stacking ensemble combining XGBoost, LightGBM, CatBoost, and ExtraTrees with a Logistic Regression meta-learner, enabling better pattern learning from complex clinical parameters.
+
+Introduces SHAP-based explainability, absent in the base paper
+Uses SMOTE-ENN, which not only balances classes but also removes noisy samples
+Applies ExtraTrees feature selection to reduce irrelevant features
+Uses heterogeneous boosting + tree ensembles, improving pattern diversity
+Employs a log transform for skewed medical parameters
+Improves generalization through stronger preprocessing and hyperparameter tuning
+Achieves higher AUC and better class balance performance
 
 ---
 
@@ -72,7 +77,7 @@ The proposed ExplaiLiver+ framework significantly improves over existing liver d
 **Dataset Details:**
 This project uses the ILPD Augmented Liver Patient Dataset, which contains clinical details of patients to predict whether a person has liver disease or not.
 
-The dataset has 5000 records and 11 features, including blood test parameters and patient information.
+The dataset has 583 records and 11 features, including blood test parameters and patient information.
 
 📊 Features in the Dataset
 Column Name          	Description
@@ -87,13 +92,16 @@ sgpt	                SGPT enzyme level (Alanine Aminotransferase)
 sgot	                SGOT enzyme level (Aspartate Aminotransferase)
 alkphos	              Alkaline Phosphatase level
 is_patient	           Target column (1 = Liver Patient, 0 = Healthy)
-🎯 Target Variable
+
+ Target Variable
+ --------------
 
 is_patient = 1 → Patient has liver disease
 
 is_patient = 0 → Patient is healthy
 
-✅ Purpose of Dataset
+ Purpose of Dataset
+ --------------------
 
 This dataset is used for machine learning classification to predict liver disease based on medical test values.
 
@@ -105,11 +113,23 @@ The system is implemented using a combination of machine learning, data processi
 ---
 
 ## EDA & Preprocessing
-Exploratory Data Analysis (EDA) was performed to understand feature distributions, correlations, and class imbalance. A correlation heatmap helped identify relationships among liver function parameters. Missing values in the A/G Ratio attribute were handled using median imputation. The categorical feature Gender was converted using label encoding. All numerical features were normalized using Min–Max scaling to ensure uniform contribution to model training. Since the dataset was imbalanced, SMOTE-ENN was applied to oversample the minority class and remove noisy samples, resulting in a more balanced and cleaner dataset for learning.
+Distribution analysis and correlation heatmap
+
+Median imputation for missing A/G ratio
+
+Label encoding for Gender
+
+Min-Max scaling
+
+Log transformation for skewed biochemical parameters
+
+SMOTE-ENN for balancing and noise removal
 
 ---
 
 ## Model Training Info
+Single models like XGBoost or LightGBM perform well individually but may capture only specific patterns in clinical data. Stacking allows multiple diverse learners to complement each other, reducing bias and variance simultaneously. This results in better generalization and more robust predictions compared to standalone models.
+
 Environment & Tools: 3.10 (Google Colab) with Scikit-learn, XGBoost, LightGBM, CatBoost, Pandas, NumPy, and Matplotlib for implementation and visualization.
 Data Split & Validation: 80:20 train-test split with 15-fold Stratified Cross-Validation.
 Preprocessing: Median imputation for A/G Ratio, label encoding for Gender, Min–Max scaling, and SMOTE-ENN for balancing.
@@ -129,22 +149,22 @@ After training, the model was evaluated using a separate test set to measure its
 
 ## Results
  1.   Model Comparison:
-Six classifiers were evaluated — Random Forest, ExtraTrees, LightGBM, XGBoost, CatBoost, and the proposed ExplaiLiver+ stacking ensemble 
-The ExplaiLiver+ model (Logistic Regression meta-learner over four base models) achieved the best overall performance. 
+      Six classifiers were evaluated — Random Forest, ExtraTrees, LightGBM, XGBoost, CatBoost, and the proposed ExplaiLiver+ stacking ensemble 
+      The ExplaiLiver+ model (Logistic Regression meta-learner over four base models) achieved the best overall performance. 
 2.  Performance Metrics:
-Accuracy: 94.05% 
-Precision: 94.33% 
-Recall: 93.84% 
-F1-Score: 94.02% 
-AUC-ROC: 0.9839
+    Accuracy: 94.05% 
+    Precision: 94.33% 
+    Recall: 93.84% 
+    F1-Score: 94.02% 
+    AUC-ROC: 0.9839
 3.  Key Insights:
-The ensemble approach significantly outperformed all single models. 
-Bilirubin, Albumin, and Enzyme levels (SGPT, SGOT, ALP) were identified as top predictors. 
-SMOTE-ENN effectively improved minority class recognition, reducing false negatives. 
-The model showed strong consistency across cross-validation folds, confirming reliability.
+    The ensemble approach significantly outperformed all single models. 
+    Bilirubin, Albumin, and Enzyme levels (SGPT, SGOT, ALP) were identified as top predictors. 
+    SMOTE-ENN effectively improved minority class recognition, reducing false negatives. 
+     The model showed strong consistency across cross-validation folds, confirming reliability.
 4.  Interpretation:
-The ExplaiLiver+ stacking framework successfully combined multiple gradient-based and tree-based models to enhance robustness and interpretability. 
-Its high AUC and balanced metrics demonstrate reliable liver disease detection, offering a clinically explainable and deployable solution for healthcare diagnosis.
+    The ExplaiLiver+ stacking framework successfully combined multiple gradient-based and tree-based models to enhance robustness and interpretability. 
+    Its high AUC and balanced metrics demonstrate reliable liver disease detection, offering a clinically explainable and deployable solution for healthcare diagnosis.
 
 
 
@@ -162,7 +182,6 @@ Expand to multi-center datasets and multi-class liver disease prediction for bro
 ---
 
 ## Deployment Info
-
 Backend
 ---------
 Platform: Render (Python Web Service)
